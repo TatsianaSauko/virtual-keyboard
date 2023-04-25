@@ -1,15 +1,40 @@
 // import { button} from "./js/button";
 
+
 import { createComponent } from "./js/page";
 import data from './js/data.js';
+import dataRu from './js/dataRu.js';
+import * as Button from "./js/button";
 
-const page = createComponent(data)
-document.body.append(page)
 
 window.onload = function () {
     console.log("Hello!")
     handlerButton()
 }
+
+let language = 'en'
+
+
+function setLocalStorage() {
+    localStorage.setItem("language", language.value);
+}
+window.addEventListener("beforeunload", setLocalStorage)
+
+function getLocalStorage() {
+    if(localStorage.getItem("language")) {
+        language = localStorage.getItem("language");
+    }
+}
+window.addEventListener("load", getLocalStorage)
+if (language === "en") {
+    const page = createComponent(data)
+    document.body.append(page)
+} else {
+    const page = createComponent(dataRu)
+    document.body.append(page)
+}
+
+
 
 const handlerButton = () => {
     let keyboard = document.querySelector('.keyboard')
@@ -113,8 +138,39 @@ function runOnKeys(func, ...codes) {
     })
 }
 
-runOnKeys(
-    () => alert("Hello!"),
+runOnKeys(() => {
+    changeLanguage()
+
+},
     "ControlLeft",
     "AltLeft"
 )
+let buttons = []
+const changeLanguage = () => {
+    if (language === "en" || language === "undefined") {
+        language = "ru"
+        localStorage.setItem("language", language)
+        createKeyboard(dataRu)
+    } else {
+        language = "en"
+        localStorage.setItem("language", language)
+        createKeyboard(data)
+
+    }
+
+}
+
+const createKeyboard = (data) => {
+    buttons = []
+    let keyboard = document.querySelector(".keyboard")
+    keyboard.innerHTML = ""
+    data.forEach(btn => {
+        const btnComponent = Button.createComponent(btn)
+        buttons.push(btnComponent)
+    })
+    buttons.forEach(i => {
+        keyboard.append(i)
+    })
+}
+
+
