@@ -3,6 +3,7 @@
   width: 40px;
   height: 40px;
   margin-left: 6px;
+  margin-bottom: 8px;
   font-weight: 500;
   line-height: 40px;
   text-align: center;
@@ -13,7 +14,12 @@
   user-select: none;
   transition: border-radius 0.3s, background-color 0.3s;
   &:hover {
-    background: $color-hover;
+    background: $color-additional;
+  }
+  &:active {
+    border-radius: 50px;
+    transition: border-radius 0.3s, background-color 0.3s;
+    background: $color-active;
   }
 }
 
@@ -21,6 +27,7 @@
 
 .back-space {
   width: 10rem;
+  background: $color-primary-2;
 }
 
 .tab {

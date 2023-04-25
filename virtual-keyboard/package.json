@@ -8,5 +8,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "eslint-config-airbnb-base": "^15.0.0",
+    "webpack": "^5.80.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.39.0",
+    "eslint-plugin-react": "^7.32.2",
+    "webpack-cli": "^5.0.2"
+  }
 }
