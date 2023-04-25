@@ -1,0 +1,33 @@
+.centralizer {
+  margin: 0 auto;
+  max-width: $content-width;
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+}
+
+.hidden {
+  display: none;
+}
+
+.title {
+  text-align: center;
+}
+
+.textarea {
+  display: block;
+  width: 70rem;
+  height: 20rem;
+  margin: 10px auto 10px;
+  padding: 10px;
+  font-size: 1.8rem;
+  color: $color-primary-1;
+}
+
+.description{
+  text-align: center;
+  margin: 10px auto;
+}
+
+.language {
+  text-align: center;
+  margin: 10px auto;
+}

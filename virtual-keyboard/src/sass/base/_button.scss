@@ -1,0 +1,94 @@
+.key {
+  float: left;
+  width: 40px;
+  height: 40px;
+  margin-left: 6px;
+  font-weight: 500;
+  line-height: 40px;
+  text-align: center;
+  color: $color-dark;
+  background: $color-primary-1;
+  border-radius: 3px;
+  cursor: pointer;
+  user-select: none;
+  transition: border-radius 0.3s, background-color 0.3s;
+  &:hover {
+    background: $color-hover;
+  }
+}
+
+
+
+.back-space {
+  width: 10rem;
+}
+
+.tab {
+  width: 5rem;
+  background: $color-primary-2;
+}
+
+.delete {
+  background: $color-primary-2;
+}
+
+.caps-lock {
+  width: 10rem;
+  background: $color-primary-2;
+}
+
+.enter {
+  width: 8.6rem;
+  background: $color-primary-2;
+}
+
+.shift-left {
+  width: 10rem;
+  background: $color-primary-2;
+}
+
+.shift-right {
+  width: 8.6rem;
+  background: $color-primary-2;
+}
+
+.ctrl-left {
+  background: $color-primary-2;
+}
+
+.meta-left {
+  background: $color-primary-2;
+}
+
+.alt-left{
+  background: $color-primary-2;
+}
+
+
+.space {
+  width: 33rem;
+}
+
+.ctrl-right {
+  background: $color-primary-2;
+}
+
+.alt-right {
+  background: $color-primary-2;
+}
+
+.arrow-left {
+  background: $color-primary-2;
+}
+
+.arrow-down {
+  background: $color-primary-2;
+}
+
+.arrow-right {
+  background: $color-primary-2;
+}
+
+.ctrl-right {
+  background: $color-primary-2;
+}
