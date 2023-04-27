@@ -3,7 +3,9 @@
 const CssClasses = {
     button: ["keyboard__key", "key"],
     caseDown: "case-down",
-    caseUp: ["case-up", "hidden"]
+    caseUp: ["case-up", "hidden"],
+    caps: ["caps", "hidden"],
+    shiftCaps: ["shift-caps", "hidden"]
 }
 
 function createComponent(btn) {
@@ -21,7 +23,17 @@ function createComponent(btn) {
     caseUp.classList.add(CssClasses.caseUp[1])
     caseUp.textContent = btn.caseUp
 
-    component.append(caseDown, caseUp)
+    const caps = document.createElement('div')
+    caps.classList.add(CssClasses.caps[0])
+    caps.classList.add(CssClasses.caps[1])
+    caps.textContent = btn.caps
+
+    const shiftCaps = document.createElement('div')
+    shiftCaps.classList.add(CssClasses.shiftCaps[0])
+    shiftCaps.classList.add(CssClasses.shiftCaps[1])
+    shiftCaps.textContent = btn.shiftCaps
+
+    component.append(caseDown, caseUp, caps, shiftCaps)
 
     return component
 

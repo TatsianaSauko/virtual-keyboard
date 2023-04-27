@@ -1,6 +1,3 @@
-// import { button} from "./js/button";
-
-
 import { createComponent } from "./js/page";
 import data from './js/data.js';
 import dataRu from './js/dataRu.js';
@@ -34,8 +31,6 @@ if (language === "en") {
     document.body.append(page)
 }
 
-
-
 const handlerButton = () => {
     let keyboard = document.querySelector('.keyboard')
     keyboard.addEventListener("click", (e) => {
@@ -56,6 +51,7 @@ const showLetter = (click) => {
     }
     if (letter === "CapsLock") {
         changeKeyboardCase()
+        changeButtonCapsLock()
     }
     if (letter === "Backspace") {
         deleteLetterLeft()
@@ -63,20 +59,44 @@ const showLetter = (click) => {
     if (letter === "Del") {
         deleteLetterRight()
     }
+    if(letter === "Enter") {
+        moveCursorNewLine()
+    }
+    if(letter === "Tab") {
+        createHorizontalMargin()
+    }
+}
+
+const changeButtonCapsLock = () => {
+    let buttonCapsLock = document.querySelector(".CapsLock")
+    if (buttonCapsLock.classList.contains("active")) {
+        buttonCapsLock.classList.remove("active")
+    } else {
+        buttonCapsLock.classList.add("active")
+    }
+}
+
+const createHorizontalMargin = () => {
+    const textarea = document.querySelector('.textarea')
+    textarea.innerHTML += "\t"
+}
+
+const moveCursorNewLine = () => {
+    const textarea = document.querySelector('.textarea')
+    textarea.innerHTML += "\n"
 }
 
 const changeKeyboardCase = () => {
-    const caseDown = document.querySelectorAll(".case-down")
-    caseDown.forEach(item => {
+    const caps = document.querySelectorAll(".caps")
+    caps.forEach(item => {
         if (item.classList.contains("hidden")) {
             item.classList.remove("hidden")
         } else {
             item.classList.add("hidden")
         }
-
     })
-    const caseUp = document.querySelectorAll(".case-up")
-    caseUp.forEach(item => {
+    const caseDown = document.querySelectorAll(".case-down")
+    caseDown.forEach(item => {
         if (item.classList.contains("hidden")) {
             item.classList.remove("hidden")
         } else {
@@ -87,13 +107,17 @@ const changeKeyboardCase = () => {
 
 const deleteLetterLeft = () => {
     let currentPos = getCursorPosition()
+    console.log(currentPos)
     const textarea = document.querySelector('.textarea')
+    console.log(textarea.innerHTML)
     let contentArray = textarea.innerHTML.split('')
     if (currentPos === 0) {
         textarea.innerHTML = contentArray.slice(0, -1).join('')
     } else {
         contentArray.splice(currentPos - 1, 1)
         textarea.innerHTML = contentArray.join('')
+        textarea.focus()
+        textarea.selectionStart = currentPos - 1
     }
 }
 
@@ -104,6 +128,8 @@ const deleteLetterRight = () => {
     if (currentPos !== 0) {
         contentArray.splice(currentPos, 1)
         textarea.innerHTML = contentArray.join('')
+        textarea.focus()
+        textarea.selectionStart = currentPos
     }
 }
 
@@ -145,8 +171,10 @@ runOnKeys(() => {
     "ControlLeft",
     "AltLeft"
 )
+
 let buttons = []
 const changeLanguage = () => {
+    buttons = []
     if (language === "en" || language === "undefined") {
         language = "ru"
         localStorage.setItem("language", language)
@@ -155,9 +183,7 @@ const changeLanguage = () => {
         language = "en"
         localStorage.setItem("language", language)
         createKeyboard(data)
-
     }
-
 }
 
 const createKeyboard = (data) => {
@@ -173,4 +199,110 @@ const createKeyboard = (data) => {
     })
 }
 
+document.addEventListener('keydown', function(event) {
+    let btn = event.code
+    let buttonsKeyboard = document.querySelector(`".${btn}"`)
+    buttonsKeyboard.classList.add("active")
+})
 
+document.addEventListener('keydown', function(event) {
+    let caps = document.querySelectorAll(".caps")[0]
+    if ((event.code === "ShiftLeft" || event.code === "ShiftRight") && caps.classList.contains("active")) {
+        showKeyboardCaseShiftCaps()
+    }
+    if (event.code === "ShiftLeft" || event.code === "ShiftRight") {
+        showKeyboardCaseShift()
+    }
+})
+document.addEventListener('keyup', function(event) {
+    let caps = document.querySelectorAll(".caps")[0]
+    if ((event.code === "ShiftLeft" || event.code === "ShiftRight") && caps.classList.contains("active")) {
+        showKeyboardCaseCaps()
+    }
+    if (event.code === "ShiftLeft" || event.code === "ShiftRight") {
+        showKeyboardCaseDown()
+    }
+})
+
+const showKeyboardCaseDown = () => {
+    hiddenShiftCaps()
+    hiddenCaseUp()
+    hiddenCaps()
+    let caseDown = document.querySelectorAll(".case-down")
+    caseDown.forEach(item => {
+        item.classList.remove("hidden")
+    })
+}
+
+const showKeyboardCaseCaps = () => {
+    hiddenCaseDown()
+    hiddenShiftCaps()
+    hiddenCaseUp()
+    let caps = document.querySelectorAll(".caps")
+    caps.forEach(item => {
+        item.classList.remove("hidden")
+    })
+
+}
+document.addEventListener('mousedown', function(event) {
+    let caps = document.querySelectorAll(".caps")[0]
+    if (event.target.innerHTML === "Shift"  && caps.classList.contains("active")) {
+        showKeyboardCaseShiftCaps()
+    }
+    if (event.target.innerHTML === "Shift" && !(caps.classList.contains("active"))) {
+        showKeyboardCaseShift()
+    }
+})
+document.addEventListener('mouseup', function(event) {
+    let caps = document.querySelectorAll(".caps")[0]
+    if (event.target.innerHTML === "Shift"  && caps.classList.contains("active")) {
+        showKeyboardCaseCaps()
+    }
+    if (event.target.innerHTML === "Shift" && !(caps.classList.contains("active"))) {
+        showKeyboardCaseDown()
+    }
+})
+
+const showKeyboardCaseShift = () => {
+    hiddenCaseDown()
+    hiddenCaps()
+    hiddenShiftCaps()
+    const caseUp = document.querySelectorAll(".case-up")
+    caseUp.forEach(item => {
+        item.classList.remove("hidden")
+    })
+}
+const hiddenShiftCaps = () => {
+    const shiftCaps = document.querySelectorAll(".shift-caps")
+    shiftCaps.forEach(item => {
+        item.classList.add("hidden")
+    })
+}
+const hiddenCaseDown = () => {
+    const caseDown = document.querySelectorAll(".case-down")
+    caseDown.forEach(item => {
+        item.classList.add("hidden")
+    })
+}
+const hiddenCaps = () => {
+    const caps = document.querySelectorAll(".caps")
+    caps.forEach(item => {
+        item.classList.add("hidden")
+    })
+}
+const hiddenCaseUp = () => {
+    const caseUp = document.querySelectorAll(".case-up")
+    caseUp.forEach(item => {
+        item.classList.add("hidden")
+    })
+}
+
+const showKeyboardCaseShiftCaps = () => {
+    hiddenCaseUp()
+    hiddenCaps()
+    hiddenCaseDown()
+    const shiftCaps = document.querySelectorAll(".shift-caps")
+    shiftCaps.forEach(item => {
+        item.classList.remove("hidden")
+    })
+}

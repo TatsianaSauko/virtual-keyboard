@@ -1,105 +1,131 @@
 
 const dataRu = [
     {
-        "caseDown": "`",
-        "caseUp": "`",
-        "class": "back-quote",
+        "caseDown": "ё",
+        "caseUp": "Ё",
+        "caps": "Ё",
+        "shiftCaps": "ё",
+        "class": "Backquote",
         "code": "Backquote",
         "key": "`",
         "keyCode": "192"
     },
     {
         "caseDown": "1",
-        "caseUp": "1",
-        "class": "digit_1",
+        "caseUp": "!",
+        "caps": "1",
+        "shiftCaps": "!",
+        "class": "Digit1",
         "code": "Digit1",
         "key": "1",
         "keyCode": "49"
     },
     {
         "caseDown": "2",
-        "caseUp": "2",
-        "class": "digit_2",
+        "caseUp": '"',
+        "caps": "2",
+        "shiftCaps": '"',
+        "class": "Digit2",
         "code": "Digit2",
         "key": "2",
         "keyCode": "50"
     },
     {
         "caseDown": "3",
-        "caseUp": "3",
-        "class": "digit_3",
+        "caseUp": "№",
+        "caps": "3",
+        "shiftCaps": "№",
+        "class": "Digit3",
         "code": "Digit3",
         "key": "3",
         "keyCode": "51"
     },
     {
         "caseDown": "4",
-        "caseUp": "4",
-        "class": "digit_4",
+        "caseUp": ";",
+        "caps": "4",
+        "shiftCaps": ";",
+        "class": "Digit4",
         "code": "Digit4",
         "key": "4",
         "keyCode": "52"
     },
     {
         "caseDown": "5",
-        "caseUp": "5",
-        "class": "digit_5",
+        "caseUp": "%",
+        "caps": "5",
+        "shiftCaps": "%",
+        "class": "Digit5",
         "code": "Digit5",
         "key": "5",
         "keyCode": "53"
     },
     {
         "caseDown": "6",
-        "caseUp": "6",
-        "class": "digit_6",
+        "caseUp": ":",
+        "caps": "6",
+        "shiftCaps": ":",
+        "class": "Digit6",
         "code": "Digit6",
         "key": "6",
         "keyCode": "54"
     },
     {
         "caseDown": "7",
-        "caseUp": "7",
-        "class": "digit_7",
+        "caseUp": "?",
+        "caps": "7",
+        "shiftCaps": "?",
+        "class": "Digit7",
         "code": "Digit7",
         "key": "7",
         "keyCode": "55"
     },
     {
         "caseDown": "8",
-        "caseUp": "8",
-        "class": "digit_8",
+        "caseUp": "*",
+        "caps": "8",
+        "shiftCaps": "*",
+        "class": "Digit8",
         "code": "Digit8",
         "key": "8",
         "keyCode": "56"
     },
     {
         "caseDown": "9",
-        "caseUp": "9",
-        "class": "digit_9",
+        "caseUp": "(",
+        "caps": "9",
+        "shiftCaps": "(",
+        "class": "Digit9",
         "code": "Digit9",
         "key": "9",
         "keyCode": "57"
     },
     {
         "caseDown": "0",
-        "caseUp": "0",
-        "class": "digit_0",
+        "caseUp": ")",
+        "caps": "0",
+        "shiftCaps": ")",
+        "class": "Digit0",
         "code": "Digit0",
         "key": "0",
         "keyCode": "48"
     },
     {
         "caseDown": "-",
-        "caseUp": "-",
-        "class": "minus",
+        "caseUp": "_",
+        "caps": "-",
+        "shiftCaps": "_",
+        "class": "Minus",
         "code": "Minus",
         "key": "-",
         "keyCode": "190"
     },
     {
         "caseDown": "=",
-        "caseUp": "=",
-        "class": "equal",
+        "caseUp": "+",
+        "caps": "=",
+        "shiftCaps": "+",
+        "class": "Equal",
         "code": "Equal",
         "key": "=",
         "keyCode": "187"
@@ -107,7 +133,9 @@ const dataRu = [
     {
         "caseDown": "Backspace",
         "caseUp": "Backspace",
-        "class": "back-space",
+        "caps": "Backspace",
+        "shiftCaps": "Backspace",
+        "class": "Backspace",
         "code": "Backspace",
         "key": "Backspace",
         "keyCode": "8"
@@ -115,7 +143,9 @@ const dataRu = [
     {
         "caseDown": "Tab",
         "caseUp": "Tab",
-        "class": "tab",
+        "caps": "Tab",
+        "shiftCaps": "Tab",
+        "class": "Tab",
         "code": "Tab",
         "key": "Tab",
         "keyCode": "9"
@@ -123,7 +153,9 @@ const dataRu = [
     {
         "caseDown": "й",
         "caseUp": "Й",
-        "class": "key_Q",
+        "caps": "Й",
+        "shiftCaps": "й",
+        "class": "KeyQ",
         "code": "KeyQ",
         "key": "q",
         "keyCode": "81"
@@ -131,7 +163,9 @@ const dataRu = [
     {
         "caseDown": "ц",
         "caseUp": "Ц",
-        "class": "key_W",
+        "caps": "Ц",
+        "shiftCaps": "ц",
+        "class": "KeyW",
         "code": "KeyW",
         "key": "w",
         "keyCode": "87"
@@ -139,7 +173,9 @@ const dataRu = [
     {
         "caseDown": "у",
         "caseUp": "У",
-        "class": "key_E",
+        "caps": "У",
+        "shiftCaps": "у",
+        "class": "KeyE",
         "code": "KeyE",
         "key": "e",
         "keyCode": "69"
@@ -147,7 +183,9 @@ const dataRu = [
     {
         "caseDown": "к",
         "caseUp": "К",
-        "class": "key_R",
+        "caps": "К",
+        "shiftCaps": "к",
+        "class": "KeyR",
         "code": "KeyR",
         "key": "r",
         "keyCode": "82"
@@ -155,7 +193,9 @@ const dataRu = [
     {
         "caseDown": "е",
         "caseUp": "Е",
-        "class": "key_T",
+        "caps": "Е",
+        "shiftCaps": "е",
+        "class": "KeyT",
         "code": "KeyT",
         "key": "t",
         "keyCode": "84"
@@ -163,7 +203,9 @@ const dataRu = [
     {
         "caseDown": "н",
         "caseUp": "Н",
-        "class": "key_Y",
+        "caps": "Н",
+        "shiftCaps": "н",
+        "class": "KeyY",
         "code": "KeyY",
         "key": "y",
         "keyCode": "89"
@@ -171,7 +213,9 @@ const dataRu = [
     {
         "caseDown": "г",
         "caseUp": "Г",
-        "class": "key_U",
+        "caps": "Г",
+        "shiftCaps": "м",
+        "class": "KeyU",
         "code": "KeyU",
         "key": "u",
         "keyCode": "85"
@@ -179,7 +223,9 @@ const dataRu = [
     {
         "caseDown": "ш",
         "caseUp": "Ш",
-        "class": "key_I",
+        "caps": "Ш",
+        "shiftCaps": "ш",
+        "class": "KeyI",
         "code": "KeyI",
         "key": "i",
         "keyCode": "73"
@@ -187,7 +233,9 @@ const dataRu = [
     {
         "caseDown": "щ",
         "caseUp": "Щ",
-        "class": "key_O",
+        "caps": "Щ",
+        "shiftCaps": "м",
+        "class": "KeyO",
         "code": "KeyO",
         "key": "o",
         "keyCode": "79"
@@ -195,7 +243,9 @@ const dataRu = [
     {
         "caseDown": "з",
         "caseUp": "З",
-        "class": "key_P",
+        "caps": "З",
+        "shiftCaps": "з",
+        "class": "KeyP",
         "code": "KeyP",
         "key": "p",
         "keyCode": "80"
@@ -203,7 +253,9 @@ const dataRu = [
     {
         "caseDown": "х",
         "caseUp": "Х",
-        "class": "bracket-left",
+        "caps": "Х",
+        "shiftCaps": "х",
+        "class": "BracketLeft",
         "code": "BracketLeft",
         "key": "[",
         "keyCode": "219"
@@ -211,15 +263,19 @@ const dataRu = [
     {
         "caseDown": "ъ",
         "caseUp": "Ъ",
-        "class": "bracket-right",
+        "caps": "Ъ",
+        "shiftCaps": "ъ",
+        "class": "BracketRight",
         "code": "BracketRight",
         "key": "]",
         "keyCode": "221"
     },
     {
         "caseDown": "\\",
-        "caseUp": "\\",
-        "class": "back-slash",
+        "caseUp": "/",
+        "caps": "\\",
+        "shiftCaps": "/",
+        "class": "Brackslash",
         "code": "Brackslash",
         "key": "\\",
         "keyCode": "220"
@@ -227,7 +283,9 @@ const dataRu = [
     {
         "caseDown": "Del",
         "caseUp": "Del",
-        "class": "delete",
+        "caps": "Del",
+        "shiftCaps": "Del",
+        "class": "Delete",
         "code": "Delete",
         "key": "Delete",
         "keyCode": "46"
@@ -235,7 +293,9 @@ const dataRu = [
     {
         "caseDown": "CapsLock",
         "caseUp": "CapsLock",
-        "class": "caps-lock",
+        "caps": "CapsLock",
+        "shiftCaps": "CapsLock",
+        "class": "CapsLock",
         "code": "CapsLock",
         "key": "CapsLock",
         "keyCode": "20"
@@ -243,7 +303,9 @@ const dataRu = [
     {
         "caseDown": "ф",
         "caseUp": "Ф",
-        "class": "key_A",
+        "caps": "Ф",
+        "shiftCaps": "ф",
+        "class": "KeyA",
         "code": "KeyA",
         "key": "a",
         "keyCode": "65"
@@ -251,7 +313,9 @@ const dataRu = [
     {
         "caseDown": "ы",
         "caseUp": "Ы",
-        "class": "key_S",
+        "caps": "Ы",
+        "shiftCaps": "ы",
+        "class": "KeyS",
         "code": "KeyS",
         "key": "s",
         "keyCode": "83"
@@ -259,7 +323,9 @@ const dataRu = [
     {
         "caseDown": "в",
         "caseUp": "В",
-        "class": "key_D",
+        "caps": "В",
+        "shiftCaps": "в",
+        "class": "KeyD",
         "code": "KeyD",
         "key": "d",
         "keyCode": "68"
@@ -267,7 +333,9 @@ const dataRu = [
     {
         "caseDown": "а",
         "caseUp": "А",
-        "class": "key_F",
+        "caps": "А",
+        "shiftCaps": "а",
+        "class": "KeyF",
         "code": "KeyF",
         "key": "f",
         "keyCode": "70"
@@ -275,7 +343,9 @@ const dataRu = [
     {
         "caseDown": "п",
         "caseUp": "П",
-        "class": "key_G",
+        "caps": "П",
+        "shiftCaps": "п",
+        "class": "KeyG",
         "code": "KeyG",
         "key": "g",
         "keyCode": "71"
@@ -283,15 +353,19 @@ const dataRu = [
     {
         "caseDown": "р",
         "caseUp": "Р",
-        "class": "key_H",
+        "caps": "Р",
+        "shiftCaps": "р",
+        "class": "KeyH",
         "code": "KeyH",
         "key": "h",
         "keyCode": "72"
     },
     {
         "caseDown": "о",
-        "caseUp": "о",
-        "class": "key_J",
+        "caseUp": "О",
+        "caps": "О",
+        "shiftCaps": "о",
+        "class": "KeyJ",
         "code": "KeyJ",
         "key": "j",
         "keyCode": "74"
@@ -299,7 +373,9 @@ const dataRu = [
     {
         "caseDown": "л",
         "caseUp": "Л",
-        "class": "key_K",
+        "caps": "Л",
+        "shiftCaps": "л",
+        "class": "KeyK",
         "code": "KeyK",
         "key": "k",
         "keyCode": "75"
@@ -307,7 +383,9 @@ const dataRu = [
     {
         "caseDown": "д",
         "caseUp": "Д",
-        "class": "key_L",
+        "caps": "Д",
+        "shiftCaps": "д",
+        "class": "KeyL",
         "code": "KeyL",
         "key": "l",
         "keyCode": "76"
@@ -315,7 +393,9 @@ const dataRu = [
     {
         "caseDown": "ж",
         "caseUp": "Ж",
-        "class": "semicolon",
+        "caps": "Ж",
+        "shiftCaps": "ж",
+        "class": "Semicolon",
         "code": "Semicolon",
         "key": ";",
         "keyCode": "186"
@@ -323,7 +403,9 @@ const dataRu = [
     {
         "caseDown": "э",
         "caseUp": "Э",
-        "class": "quote",
+        "caps": "Э",
+        "shiftCaps": "э",
+        "class": "Quote",
         "code": "Quote",
         "key": "'",
         "keyCode": "222"
@@ -331,7 +413,9 @@ const dataRu = [
     {
         "caseDown": "Enter",
         "caseUp": "Enter",
-        "class": "enter",
+        "caps": "Enter",
+        "shiftCaps": "Enter",
+        "class": "Enter",
         "code": "Enter",
         "key": "Enter",
         "keyCode": "13"
@@ -339,7 +423,9 @@ const dataRu = [
     {
         "caseDown": "Shift",
         "caseUp": "Shift",
-        "class": "shift-left",
+        "caps": "Shift",
+        "shiftCaps": "Shift",
+        "class": "ShiftLeft",
         "code": "ShiftLeft",
         "key": "Shift",
         "keyCode": "16"
@@ -347,7 +433,9 @@ const dataRu = [
     {
         "caseDown": "я",
         "caseUp": "Я",
-        "class": "Key_Z",
+        "caps": "Я",
+        "shiftCaps": "я",
+        "class": "KeyZ",
         "code": "KeyZ",
         "key": "z",
         "keyCode": "90"
@@ -355,7 +443,9 @@ const dataRu = [
     {
         "caseDown": "ч",
         "caseUp": "Ч",
-        "class": "Key_X",
+        "caps": "Ч",
+        "shiftCaps": "ч",
+        "class": "KeyX",
         "code": "KeyX",
         "key": "x",
         "keyCode": "88"
@@ -363,7 +453,9 @@ const dataRu = [
     {
         "caseDown": "с",
         "caseUp": "С",
-        "class": "Key_C",
+        "caps": "С",
+        "shiftCaps": "с",
+        "class": "KeyC",
         "code": "KeyC",
         "key": "c",
         "keyCode": "67"
@@ -371,15 +463,19 @@ const dataRu = [
     {
         "caseDown": "м",
         "caseUp": "М",
-        "class": "Key_V",
+        "caps": "М",
+        "shiftCaps": "м",
+        "class": "KeyV",
         "code": "KeyV",
         "key": "v",
         "keyCode": "86"
     },
     {
         "caseDown": "и",
-        "caseUp": "и",
-        "class": "Key_B",
+        "caseUp": "И",
+        "caps": "И",
+        "shiftCaps": "и",
+        "class": "KeyB",
         "code": "KeyB",
         "key": "b",
         "keyCode": "66"
@@ -387,7 +483,9 @@ const dataRu = [
     {
         "caseDown": "т",
         "caseUp": "Т",
-        "class": "Key_N",
+        "caps": "Т",
+        "shiftCaps": "т",
+        "class": "KeyN",
         "code": "KeyN",
         "key": "n",
         "keyCode": "78"
@@ -395,7 +493,9 @@ const dataRu = [
     {
         "caseDown": "ь",
         "caseUp": "Ь",
-        "class": "Key_M",
+        "caps": "Ь",
+        "shiftCaps": "ь",
+        "class": "KeyM",
         "code": "KeyM",
         "key": "m",
         "keyCode": "77"
@@ -403,7 +503,9 @@ const dataRu = [
     {
         "caseDown": "б",
         "caseUp": "Б",
-        "class": "comma",
+        "caps": "Б",
+        "shiftCaps": "б",
+        "class": "Comma",
         "code": "Comma",
         "key": ",",
         "keyCode": "188"
@@ -411,15 +513,19 @@ const dataRu = [
     {
         "caseDown": "ю",
         "caseUp": "Ю",
-        "class": "period",
+        "caps": "Ю",
+        "shiftCaps": "ю",
+        "class": "Period",
         "code": "Period",
         "key": ".",
         "keyCode": "190"
     },
     {
         "caseDown": ".",
-        "caseUp": ".",
-        "class": "slash",
+        "caseUp": ",",
+        "caps": ".",
+        "shiftCaps": ",",
+        "class": "Slash",
         "code": "Slash",
         "key": "/",
         "keyCode": "191"
@@ -427,7 +533,9 @@ const dataRu = [
     {
         "caseDown": "▲",
         "caseUp": "▲",
-        "class": "arrow-up",
+        "caps": "▲",
+        "shiftCaps": "▲",
+        "class": "ArrowUp",
         "code": "ArrowUp",
         "key": "ArrowUp",
         "keyCode": "38"
@@ -435,7 +543,9 @@ const dataRu = [
     {
         "caseDown": "Shift",
         "caseUp": "Shift",
-        "class": "shift-right",
+        "caps": "Shift",
+        "shiftCaps": "Shift",
+        "class": "ShiftRight",
         "code": "ShiftRight",
         "key": "Shift",
         "keyCode": "16"
@@ -443,7 +553,9 @@ const dataRu = [
     {
         "caseDown": "Ctrl",
         "caseUp": "Ctrl",
-        "class": "ctrl-left",
+        "caps": "Ctrl",
+        "shiftCaps": "Ctrl",
+        "class": "ControlLeft",
         "code": "ControlLeft",
         "key": "Control",
         "keyCode": "17"
@@ -451,7 +563,9 @@ const dataRu = [
     {
         "caseDown": "Win",
         "caseUp": "Win",
-        "class": "meta-left",
+        "caps": "Win",
+        "shiftCaps": "Win",
+        "class": "MetaLeft",
         "code": "MetaLeft",
         "key": "Meta",
         "keyCode": "91"
@@ -459,7 +573,9 @@ const dataRu = [
     {
         "caseDown": "Alt",
         "caseUp": "Alt",
-        "class": "alt-left",
+        "caps": "Alt",
+        "shiftCaps": "Alt",
+        "class": "AltLeft",
         "code": "AltLeft",
         "key": "Alt",
         "keyCode": "18"
@@ -467,7 +583,9 @@ const dataRu = [
     {
         "caseDown": " ",
         "caseUp": " ",
-        "class": "space",
+        "caps": " ",
+        "shiftCaps": " ",
+        "class": "Space",
         "code": "Space",
         "key": " ",
         "keyCode": "32"
@@ -475,7 +593,9 @@ const dataRu = [
     {
         "caseDown": "Alt",
         "caseUp": "Alt",
-        "class": "alt-right",
+        "caps": "Alt",
+        "shiftCaps": "Alt",
+        "class": "AltRight",
         "code": "AltRight",
         "key": "Alt",
         "keyCode": "18"
@@ -483,7 +603,9 @@ const dataRu = [
     {
         "caseDown": "◄",
         "caseUp": "◄",
-        "class": "arrow-left",
+        "caps": "◄",
+        "shiftCaps": "◄",
+        "class": "ArrowLeft",
         "code": "ArrowLeft",
         "key": "ArrowLeft",
         "keyCode": "37"
@@ -491,7 +613,9 @@ const dataRu = [
     {
         "caseDown": "▼",
         "caseUp": "▼",
-        "class": "arrow-down",
+        "caps": "▼",
+        "shiftCaps": "▼",
+        "class": "ArrowDown",
         "code": "ArrowDown",
         "key": "ArrowDown",
         "keyCode": "40"
@@ -499,7 +623,9 @@ const dataRu = [
     {
         "caseDown": "►",
         "caseUp": "►",
-        "class": "arrow-right",
+        "caps": "►",
+        "shiftCaps": "►",
+        "class": "ArrowRight",
         "code": "ArrowRight",
         "key": "ArrowRight",
         "keyCode": "39"
@@ -507,7 +633,9 @@ const dataRu = [
     {
         "caseDown": "Ctrl",
         "caseUp": "Ctrl",
-        "class": "ctrl-right",
+        "caps": "Ctrl",
+        "shiftCaps": "Ctrl",
+        "class": "ControlRight",
         "code": "ControlRight",
         "key": "Control",
         "keyCode": "17"

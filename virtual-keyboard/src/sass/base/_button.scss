@@ -25,77 +25,76 @@
 
 
 
-.back-space {
+.Backspace {
   width: 10rem;
   background: $color-primary-2;
 }
 
-.tab {
+.Tab {
   width: 5rem;
   background: $color-primary-2;
 }
 
-.delete {
+.Delete {
   background: $color-primary-2;
 }
 
-.caps-lock {
+.CapsLock {
   width: 10rem;
   background: $color-primary-2;
 }
 
-.enter {
+.Enter {
   width: 8.6rem;
   background: $color-primary-2;
 }
 
-.shift-left {
+.ShiftLeft {
   width: 10rem;
   background: $color-primary-2;
 }
 
-.shift-right {
+.ShiftRight {
   width: 8.6rem;
   background: $color-primary-2;
 }
 
-.ctrl-left {
+
+.MetaLeft {
   background: $color-primary-2;
 }
 
-.meta-left {
-  background: $color-primary-2;
-}
-
-.alt-left{
+.ControlLeft{
   background: $color-primary-2;
 }
 
 
-.space {
+.Space {
   width: 33rem;
 }
 
-.ctrl-right {
+.AltRight {
   background: $color-primary-2;
 }
 
-.alt-right {
+.ArrowLeft {
   background: $color-primary-2;
 }
 
-.arrow-left {
+.ArrowDown {
   background: $color-primary-2;
 }
 
-.arrow-down {
+.ArrowRight {
   background: $color-primary-2;
 }
 
-.arrow-right {
+.ControlRight {
   background: $color-primary-2;
 }
 
-.ctrl-right {
-  background: $color-primary-2;
+.active {
+  border-radius: 50px;
+  transition: border-radius 0.3s, background-color 0.3s;
+  background: $color-active;
 }
