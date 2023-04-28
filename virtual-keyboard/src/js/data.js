@@ -44,7 +44,7 @@ const data = [
         "caseDown": "4",
         "caseUp": "$",
         "caps": "4",
-        "shiftCaps": "4",
+        "shiftCaps": "$",
         "class": "Digit4",
         "code": "Digit4",
         "key": "4",

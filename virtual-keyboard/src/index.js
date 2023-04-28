@@ -35,19 +35,14 @@ const handlerButton = () => {
     let keyboard = document.querySelector('.keyboard')
     keyboard.addEventListener("click", (e) => {
     let click = e.target
-        showLetter(click)
+        getLetter(click)
     })
 }
-
-const showLetter = (click) => {
+const getLetter = (click) => {
     let letter = click.innerHTML
     let clickArray = letter.split('')
-    const textarea = document.querySelector('.textarea')
     if (clickArray.length === 1) {
-        textarea.innerHTML += letter
-    }
-    if (click.classList.contains('space')) {
-        textarea.innerHTML += " "
+        showLetter(letter)
     }
     if (letter === "CapsLock") {
         changeKeyboardCase()
@@ -60,11 +55,30 @@ const showLetter = (click) => {
         deleteLetterRight()
     }
     if(letter === "Enter") {
-        moveCursorNewLine()
+        showLetter("\n")
+    }
+    if(click.classList.contains("Space")) {
+        showLetter(" ")
     }
     if(letter === "Tab") {
-        createHorizontalMargin()
+        showLetter("    ")
     }
+}
+
+const showLetter = (letter) => {
+    let currentPos = getCursorPosition()
+    let textarea = document.querySelector('.textarea')
+    let contentArray = textarea.value.split('')
+    contentArray.splice(currentPos, 0, letter)
+    textarea.value = contentArray.join('')
+    textarea.focus()
+        if (letter === "    ") {
+            textarea.selectionStart = currentPos + 4
+            textarea.selectionEnd = currentPos + 4
+        } else {
+            textarea.selectionStart = currentPos + 1
+            textarea.selectionEnd = currentPos + 1
+        }
 }
 
 const changeButtonCapsLock = () => {
@@ -74,16 +88,6 @@ const changeButtonCapsLock = () => {
     } else {
         buttonCapsLock.classList.add("active")
     }
-}
-
-const createHorizontalMargin = () => {
-    const textarea = document.querySelector('.textarea')
-    textarea.innerHTML += "\t"
-}
-
-const moveCursorNewLine = () => {
-    const textarea = document.querySelector('.textarea')
-    textarea.innerHTML += "\n"
 }
 
 const changeKeyboardCase = () => {
@@ -107,34 +111,29 @@ const changeKeyboardCase = () => {
 
 const deleteLetterLeft = () => {
     let currentPos = getCursorPosition()
-    console.log(currentPos)
-    const textarea = document.querySelector('.textarea')
-    console.log(textarea.innerHTML)
-    let contentArray = textarea.innerHTML.split('')
-    if (currentPos === 0) {
-        textarea.innerHTML = contentArray.slice(0, -1).join('')
-    } else {
-        contentArray.splice(currentPos - 1, 1)
-        textarea.innerHTML = contentArray.join('')
-        textarea.focus()
-        textarea.selectionStart = currentPos - 1
-    }
+    let textarea = document.querySelector('.textarea')
+    let contentArray = textarea.value.split('')
+    contentArray.splice(currentPos - 1, 1)
+    textarea.value = contentArray.join('')
+    textarea.focus()
+    textarea.selectionStart = currentPos - 1
+    textarea.selectionEnd = currentPos - 1
+
 }
 
 const deleteLetterRight = () => {
     let currentPos = getCursorPosition()
-    const textarea = document.querySelector('.textarea')
-    let contentArray = textarea.innerHTML.split('')
-    if (currentPos !== 0) {
-        contentArray.splice(currentPos, 1)
-        textarea.innerHTML = contentArray.join('')
-        textarea.focus()
-        textarea.selectionStart = currentPos
-    }
+    let textarea = document.querySelector('.textarea')
+    let contentArray = textarea.value.split('')
+    contentArray.splice(currentPos, 1)
+    textarea.value = contentArray.join('')
+    textarea.focus()
+    textarea.selectionStart = currentPos
+    textarea.selectionEnd = currentPos
 }
 
 const getCursorPosition = () =>{
-    const textarea = document.querySelector('.textarea')
+    let textarea = document.querySelector('.textarea')
     let currentPos = 0;
     if ( document.selection ) {
     textarea.focus ();
@@ -165,7 +164,15 @@ function runOnKeys(func, ...codes) {
 }
 
 runOnKeys(() => {
-    changeLanguage()
+    let buttonCapsLock = document.querySelector(".CapsLock")
+    if (buttonCapsLock.classList.contains("active")) {
+        changeLanguage()
+        changeKeyboardCase()
+        changeButtonCapsLock()
+
+    } else {
+        changeLanguage()
+    }
 
 },
     "ControlLeft",
@@ -200,26 +207,20 @@ const createKeyboard = (data) => {
 }
 
 document.addEventListener('keydown', function(event) {
-    let btn = event.code
-    let buttonsKeyboard = document.querySelector(`".${btn}"`)
-    buttonsKeyboard.classList.add("active")
-})
-
-document.addEventListener('keydown', function(event) {
-    let caps = document.querySelectorAll(".caps")[0]
-    if ((event.code === "ShiftLeft" || event.code === "ShiftRight") && caps.classList.contains("active")) {
+    let buttonCapsLock = document.querySelector(".CapsLock")
+    if (event.target.innerHTML === "Shift"  && buttonCapsLock.classList.contains("active")) {
         showKeyboardCaseShiftCaps()
     }
-    if (event.code === "ShiftLeft" || event.code === "ShiftRight") {
+    if (event.target.innerHTML === "Shift"  && buttonCapsLock.classList.contains("active")) {
         showKeyboardCaseShift()
     }
 })
 document.addEventListener('keyup', function(event) {
     let caps = document.querySelectorAll(".caps")[0]
-    if ((event.code === "ShiftLeft" || event.code === "ShiftRight") && caps.classList.contains("active")) {
+    if ((event.code === "ShiftLeft" || event.code === "ShiftRight") && !(caps.classList.contains("hidden"))) {
         showKeyboardCaseCaps()
     }
-    if (event.code === "ShiftLeft" || event.code === "ShiftRight") {
+    if ((event.code === "ShiftLeft" || event.code === "ShiftRight") && caps.classList.contains("hidden")) {
         showKeyboardCaseDown()
     }
 })
@@ -245,20 +246,20 @@ const showKeyboardCaseCaps = () => {
 
 }
 document.addEventListener('mousedown', function(event) {
-    let caps = document.querySelectorAll(".caps")[0]
-    if (event.target.innerHTML === "Shift"  && caps.classList.contains("active")) {
+    let buttonCapsLock = document.querySelector(".CapsLock")
+    if (event.target.innerHTML === "Shift"  && buttonCapsLock.classList.contains("active")) {
         showKeyboardCaseShiftCaps()
     }
-    if (event.target.innerHTML === "Shift" && !(caps.classList.contains("active"))) {
+    if (event.target.innerHTML === "Shift" && !(buttonCapsLock.classList.contains("active"))) {
         showKeyboardCaseShift()
     }
 })
 document.addEventListener('mouseup', function(event) {
-    let caps = document.querySelectorAll(".caps")[0]
-    if (event.target.innerHTML === "Shift"  && caps.classList.contains("active")) {
+    let buttonCapsLock = document.querySelector(".CapsLock")
+    if (event.target.innerHTML === "Shift"  && buttonCapsLock.classList.contains("active")) {
         showKeyboardCaseCaps()
     }
-    if (event.target.innerHTML === "Shift" && !(caps.classList.contains("active"))) {
+    if (event.target.innerHTML === "Shift" && !(buttonCapsLock.classList.contains("active"))) {
         showKeyboardCaseDown()
     }
 })
@@ -302,6 +303,7 @@ const showKeyboardCaseShiftCaps = () => {
     hiddenCaps()
     hiddenCaseDown()
     const shiftCaps = document.querySelectorAll(".shift-caps")
+    console.log(shiftCaps)
     shiftCaps.forEach(item => {
         item.classList.remove("hidden")
     })
