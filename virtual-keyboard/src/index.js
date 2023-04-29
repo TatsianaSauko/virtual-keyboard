@@ -236,9 +236,22 @@ const showActiveButton = (pressed) => {
 
 const removeActiveButton = (pressed) => {
   pressed.forEach(value => {
-    document.querySelector(`.${value}`).classList.remove("active");
+    if (value !== "ShiftLeft" && value !== "ShiftRight") {
+      document.querySelector(`.${value}`).classList.remove("active");
+    }
   });
 };
+
+document.addEventListener("keyup", (event) => {
+  let shiftLeft = document.querySelector(".ShiftLeft");
+  let shiftRight = document.querySelector(".ShiftRight");
+  if (event.code === "ShiftLeft") {
+    shiftLeft.classList.remove("active")
+  }
+  if (event.code === "ShiftRight") {
+    shiftRight.classList.remove("active")
+  }
+});
 
 function runOnKeys(func, ...codes) {
   let pressed = new Set();
