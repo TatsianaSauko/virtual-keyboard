@@ -274,8 +274,8 @@ const dataRu = [
         "caseUp": "/",
         "caps": "\\",
         "shiftCaps": "/",
-        "class": "Brackslash",
-        "code": "Brackslash",
+        "class": "Backslash",
+        "code": "Backslash",
         "key": "\\",
         "keyCode": "220"
     },
