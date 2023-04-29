@@ -1,4 +1,3 @@
-
 const data = [
     {
         "caseDown": "`",
@@ -642,8 +641,6 @@ const data = [
     }
 
 ];
-
-
 
 
 export default data;

@@ -4,32 +4,36 @@ import dataRu from './js/dataRu.js';
 import * as Button from "./js/button";
 
 
+let language = "en"
+let buttons = []
+
+
 window.onload = function () {
     console.log("Hello!")
+    createPage()
     handlerButton()
     handlerKeyboardButton()
 }
-
-let language = "en"
-
-
-function setLocalStorage() {
-    localStorage.setItem("language", language.value);
-}
-window.addEventListener("beforeunload", setLocalStorage)
 
 function getLocalStorage() {
     if(localStorage.getItem("language")) {
         language = localStorage.getItem("language");
     }
 }
+
+
 window.addEventListener("load", getLocalStorage)
-if (language === "en") {
-    const page = createComponent(data)
-    document.body.append(page)
-} else {
-    const page = createComponent(dataRu)
-    document.body.append(page)
+
+const createPage = () => {
+    getLocalStorage()
+    if (language === "en") {
+        const page = createComponent(data)
+        document.body.append(page)
+    } else {
+        const page = createComponent(dataRu)
+        document.body.append(page)
+        createKeyboard(dataRu)
+    }
 }
 
 const handlerButton = () => {
@@ -185,6 +189,7 @@ const showActiveButton = (pressed) => {
         document.querySelector(`.${value}`).classList.add("active")
     })
 }
+
 const removeActiveButton = (pressed) => {
     pressed.forEach(value => {
         document.querySelector(`.${value}`).classList.remove("active")
@@ -208,10 +213,9 @@ runOnKeys(() => {
     "AltLeft"
 )
 
-let buttons = []
 const changeLanguage = () => {
     buttons = []
-    if (language === "en" || language === "undefined") {
+    if (language === "en") {
         language = "ru"
         localStorage.setItem("language", language)
         createKeyboard(dataRu)
@@ -222,11 +226,11 @@ const changeLanguage = () => {
     }
 }
 
-const createKeyboard = (data) => {
+const createKeyboard = (obj) => {
     buttons = []
     let keyboard = document.querySelector(".keyboard")
     keyboard.innerHTML = ""
-    data.forEach(btn => {
+    obj.forEach(btn => {
         const btnComponent = Button.createComponent(btn)
         buttons.push(btnComponent)
     })
@@ -286,6 +290,7 @@ const showKeyboardCaseCaps = () => {
     })
 
 }
+
 document.addEventListener('mousedown', function(event) {
     let buttonCapsLock = document.querySelector(".CapsLock")
     if (event.target.innerHTML === "Shift"  && buttonCapsLock.classList.contains("active")) {
@@ -295,6 +300,7 @@ document.addEventListener('mousedown', function(event) {
         showKeyboardCaseShift()
     }
 })
+
 document.addEventListener('mouseup', function(event) {
     let buttonCapsLock = document.querySelector(".CapsLock")
     if (event.target.innerHTML === "Shift"  && buttonCapsLock.classList.contains("active")) {
@@ -314,24 +320,28 @@ const showKeyboardCaseShift = () => {
         item.classList.remove("hidden")
     })
 }
+
 const hiddenShiftCaps = () => {
     const shiftCaps = document.querySelectorAll(".shift-caps")
     shiftCaps.forEach(item => {
         item.classList.add("hidden")
     })
 }
+
 const hiddenCaseDown = () => {
     const caseDown = document.querySelectorAll(".case-down")
     caseDown.forEach(item => {
         item.classList.add("hidden")
     })
 }
+
 const hiddenCaps = () => {
     const caps = document.querySelectorAll(".caps")
     caps.forEach(item => {
         item.classList.add("hidden")
     })
 }
+
 const hiddenCaseUp = () => {
     const caseUp = document.querySelectorAll(".case-up")
     caseUp.forEach(item => {

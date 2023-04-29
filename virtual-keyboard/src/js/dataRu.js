@@ -1,4 +1,3 @@
-
 const dataRu = [
     {
         "caseDown": "ё",
@@ -642,8 +641,6 @@ const dataRu = [
     }
 
 ];
-
-
 
 
 export default dataRu;
