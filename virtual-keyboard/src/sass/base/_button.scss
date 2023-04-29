@@ -13,17 +13,17 @@
   cursor: pointer;
   user-select: none;
   transition: border-radius 0.3s, background-color 0.3s;
+
   &:hover {
     background: $color-additional;
   }
+
   &:active {
     border-radius: 50px;
     transition: border-radius 0.3s, background-color 0.3s;
     background: $color-active;
   }
 }
-
-
 
 .Backspace {
   width: 10rem;
@@ -59,21 +59,23 @@
   background: $color-primary-2;
 }
 
-
 .MetaLeft {
   background: $color-primary-2;
 }
 
-.ControlLeft{
+.ControlLeft {
   background: $color-primary-2;
 }
-
 
 .Space {
   width: 33rem;
 }
 
 .AltRight {
+  background: $color-primary-2;
+}
+
+.AltLeft {
   background: $color-primary-2;
 }
 
