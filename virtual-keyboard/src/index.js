@@ -6,12 +6,6 @@ import * as Button from "./js/button";
 let language = "en";
 let buttons = [];
 
-window.onload = () => {
-  createPage();
-  handlerButton();
-  handlerKeyboardButton();
-};
-
 function getLocalStorage() {
   if (localStorage.getItem("language")) {
     language = localStorage.getItem("language");
@@ -246,10 +240,10 @@ document.addEventListener("keyup", (event) => {
   let shiftLeft = document.querySelector(".ShiftLeft");
   let shiftRight = document.querySelector(".ShiftRight");
   if (event.code === "ShiftLeft") {
-    shiftLeft.classList.remove("active")
+    shiftLeft.classList.remove("active");
   }
   if (event.code === "ShiftRight") {
-    shiftRight.classList.remove("active")
+    shiftRight.classList.remove("active");
   }
 });
 
@@ -286,20 +280,41 @@ const changeLanguage = () => {
     createKeyboard(data);
   }
 };
+
+const changeActiveAltLeftControlLeft = () => {
+  let buttonAltLeft = document.querySelector(".AltLeft");
+  buttonAltLeft.classList.add("active");
+  let controlLeft = document.querySelector(".ControlLeft");
+  controlLeft.classList.add("active");
+};
+
 runOnKeys(
   () => {
     let buttonCapsLock = document.querySelector(".CapsLock");
     if (buttonCapsLock.classList.contains("active")) {
       changeLanguage();
       changeKeyboardCase();
+      changeActiveAltLeftControlLeft();
       changeButtonCapsLock();
     } else {
       changeLanguage();
+      changeActiveAltLeftControlLeft();
     }
   },
   "ControlLeft",
   "AltLeft"
 );
+
+document.addEventListener("keyup", (event) => {
+  let buttonAltLeft = document.querySelector(".AltLeft");
+  if (event.code === "AltLeft") {
+    buttonAltLeft.classList.remove("active");
+  }
+  let controlLeft = document.querySelector(".ControlLeft");
+  if (event.code === "AltLeft") {
+    controlLeft.classList.remove("active");
+  }
+});
 
 const showKeyboardCaseShiftCaps = () => {
   hiddenCaseUp();
@@ -358,3 +373,7 @@ document.addEventListener("mouseup", (event) => {
     showKeyboardCaseDown();
   }
 });
+
+createPage();
+handlerButton();
+handlerKeyboardButton();

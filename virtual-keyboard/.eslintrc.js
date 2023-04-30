@@ -14,8 +14,6 @@ module.exports = {
     sourceType: "module"
   },
   rules: {
-    semi: "warn",
-    "no-use-before-define": ["error", { functions: false }],
     quotes: ["error", "double"],
     "linebreak-style": ["off", "windows"]
   }
