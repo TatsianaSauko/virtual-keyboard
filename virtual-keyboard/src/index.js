@@ -204,21 +204,28 @@ const changeCapsCock = (event) => {
     showKeyboardCaseDown();
   }
 };
-
+let arr = [];
+data.forEach(itemClass => {
+  arr.push(itemClass.class);
+});
 const handlerKeyboardButton = () => {
   document.addEventListener("keydown", (e) => {
     changeCapsCock(e);
     e.preventDefault();
     let button = document.querySelector(`.${e.code}`);
-    let children = button.childNodes;
-    let elems = Array.prototype.slice.call(children);
-    elems.forEach(elem => {
-      if (!(elem.classList.contains("hidden"))) {
-        if (elem.innerHTML !== "CapsLock") {
-          getLetter(elem);
+    try {
+      let children = button.childNodes;
+      let elems = Array.prototype.slice.call(children);
+      elems.forEach(elem => {
+        if (!(elem.classList.contains("hidden"))) {
+          if (elem.innerHTML !== "CapsLock") {
+            getLetter(elem);
+          }
         }
-      }
-    });
+      });
+    } catch (err) {
+      e.preventDefault();
+    }
   });
 };
 
@@ -250,7 +257,7 @@ document.addEventListener("keyup", (event) => {
 function runOnKeys(func, ...codes) {
   let pressed = new Set();
   document.addEventListener("keydown", (event) => {
-    if (event.code !== "CapsLock") {
+    if (event.code !== "CapsLock" && arr.includes(event.code)) {
       pressed.add(event.code);
       showActiveButton(pressed);
     }
