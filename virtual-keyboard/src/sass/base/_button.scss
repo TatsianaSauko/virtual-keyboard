@@ -1,0 +1,102 @@
+.key {
+  float: left;
+  width: 40px;
+  height: 40px;
+  margin-left: 6px;
+  margin-bottom: 8px;
+  font-weight: 500;
+  line-height: 40px;
+  text-align: center;
+  color: $color-dark;
+  background: $color-primary-1;
+  border-radius: 3px;
+  cursor: pointer;
+  user-select: none;
+  transition: border-radius 0.3s, background-color 0.3s;
+
+  &:hover {
+    background: $color-additional;
+  }
+
+  &:active {
+    border-radius: 50px;
+    transition: border-radius 0.3s, background-color 0.3s;
+    background: $color-active;
+  }
+}
+
+.Backspace {
+  width: 10rem;
+  background: $color-primary-2;
+}
+
+.Tab {
+  width: 5rem;
+  background: $color-primary-2;
+}
+
+.Delete {
+  background: $color-primary-2;
+}
+
+.CapsLock {
+  width: 10rem;
+  background: $color-primary-2;
+}
+
+.Enter {
+  width: 8.6rem;
+  background: $color-primary-2;
+}
+
+.ShiftLeft {
+  width: 10rem;
+  background: $color-primary-2;
+}
+
+.ShiftRight {
+  width: 8.6rem;
+  background: $color-primary-2;
+}
+
+.MetaLeft {
+  background: $color-primary-2;
+}
+
+.ControlLeft {
+  background: $color-primary-2;
+}
+
+.Space {
+  width: 33rem;
+}
+
+.AltRight {
+  background: $color-primary-2;
+}
+
+.AltLeft {
+  background: $color-primary-2;
+}
+
+.ArrowLeft {
+  background: $color-primary-2;
+}
+
+.ArrowDown {
+  background: $color-primary-2;
+}
+
+.ArrowRight {
+  background: $color-primary-2;
+}
+
+.ControlRight {
+  background: $color-primary-2;
+}
+
+.active {
+  border-radius: 50px;
+  transition: border-radius 0.3s, background-color 0.3s;
+  background: $color-active;
+}
